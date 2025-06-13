@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+      <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+            <meta name="theme-color" content="#ffffff">
+            <title>Chan đê anh em</title>
+
+            <link rel="stylesheet" href="./style/style.css">
+            <link rel="preconnect" href="https://fonts.googleapis.com">
+            <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+            <link href="https://fonts.googleapis.com/css2?family=Cascadia+Mono:ital,wght@0,200..700;1,200..700&family=Comic+Relief:wght@400;700&family=Play:wght@400;700&display=swap" rel="stylesheet">
+            <link rel="shortcut icon" href="./image/tai-xiu.png" type="image/x-icon">
+
+            <script src="https://kit.fontawesome.com/8ef5abc7c0.js" crossorigin="anonymous"></script>
+      </head>
+      <body>
+            <div class="container">
+                  <div class="top-container" style="display: flex; justify-content: space-evenly; margin-top: 0.5em;">
+                        <!-- Search -->
+                        <div class="top-container--search">
+                              <input type="search" placeholder="Tìm kiếm bài hát..." autocomplete="off">
+                        </div>
+
+                        <!-- Upload -->
+                        <div class="top-container--upload">
+                              <button class="searchButton" id="searchButton" onclick="uploadToggle()">
+                                    <i class="fa-solid fa-upload"></i>
+                              </button>
+                        </div>
+                        <div class="top-container--uploadToggle" id="uploadToggle">
+                              <label for="musicName">Tên bài hát</label>
+                              <input type="text" id="musicName" style="padding: 0.3em; font-family: 'Cascadia Mono', sans-serif; outline: none;" required>
+                              <label for="fileupload" style="margin-top: 12px;">Chọn file nhạc</label>
+                              <input type="file" 
+                                     id="fileupload" 
+                                     accept=".mp3,.wav,.m4a,.aac,.ogg,.flac,.wma" 
+                                     style="margin-top: 12px;" 
+                                     required>
+                              <div id="fileSize"></div>
+                              <button style="margin-top: 1em;
+                                             padding: 0.4em;
+                                             font-family: 'Cascadia Mono', sans-serif;
+                                             font-optical-sizing: auto;" onclick="confirmButton()">Xác nhận
+                              </button>
+                        </div>
+
+                        <!-- Account -->
+                        <div class="top-container--account">
+                              <button onclick="userToggle()">
+                                    <img src="./image/avatar.jpg" alt="" class="userImage">
+                              </button>
+                        </div>
+                        <div class="top-container--userToggle" id="userToggle">
+                              <img src="./image/avatar.jpg" alt="" style="height: 3em; display: flex; margin: 0.7em auto;">
+
+                              <div class="usertoggle-infor--text" style="margin-left: 0.5em;">
+                                    <p>Username</p>
+                                    <p>ID</p>
+                              </div>
+
+                              <hr>
+
+                              <div class="userToggle--logout" style="display: flex; justify-content: center;">
+                                    <button>Anext</button>
+                              </div>
+                        </div>
+
+                  </div>
+
+                  <div class="body-container">
+                        <p class="Chan-de">Chan đê</p>
+                        <div class="body-container--playlist" style="display: flex; justify-content: center;">
+                        </div>
+                  </div>
+
+                  <div class="bottom-container" style="border-top: 1px solid;">
+                        <!-- Play music -->
+                        <div class="bottom-container--playmusic">
+                              <div class="playmusic-control">
+                                    <button id="backWardButton"><i class="fa-solid fa-backward"></i></button>
+                                    <button id="playButton">
+                                          <i class="fa-solid fa-play" id="playIcon"></i>
+                                          <i class="fa-solid fa-pause" id="pauseIcon" style="display: none;"></i>
+                                    </button>
+                                    <button id="forWardButton"><i class="fa-solid fa-forward"></i></button>
+                                    
+                              </div>
+                        </div>
+
+                        <!-- Wave suffer -->
+                        <div class="playmusic-wavesuffer">
+                              <div class="playmusic-wavesuffer--duration" style="display: flex; justify-content: space-between;">
+                                    <div class="waveform__counter" style="margin-right: 16px;">00:00</div>
+                                    <div class="waveform__duration">00:00</div>
+                              </div>
+                              <div id="waveform"></div>
+                              
+                        </div>
+                  </div>
+            </div>
+
+            <script type="module" src="./script/wave-suffer.js"></script>
+            <script type="module" src="./script/upload-file.js"></script>
+            <script>
+                  function userToggle() {
+                        var userToggle = document.getElementById('userToggle');
+                        if (userToggle.style.display === 'block') {
+                              userToggle.style.display = 'none';
+                        } else {
+                              userToggle.style.display = 'block';
+                        }
+                  }
+
+                  function uploadToggle() {
+                        var optionUploadContainer = document.getElementById('uploadToggle');
+                        if (optionUploadContainer.style.display === 'flex') {
+                              optionUploadContainer.style.display = 'none';
+                        } else {
+                              optionUploadContainer.style.display = 'flex';
+                        }
+                  }
+            </script>
+      </body>
+</html>
